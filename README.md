@@ -1,18 +1,46 @@
-# Project-Datenbank-CLI
-### Dokumentation zur Einbindung von Anti-Reversing Methoden
+### Dokumentation zur Einbindung von Anti-Reverse-Engineering Methoden
 
-Diese Anleitung zeigt, wie Sie die `filepump`-Methoden aus der `file_pump.h` Datei in ein Projekt einbinden und mit **ADVobfuscator** obfuskieren können.
+Diese Anleitung zeigt, wie Sie die `filepump`-Methoden aus der `file_pump.h` Datei in ein Projekt einbinden und mit **ADVobfuscator** obfuskieren können. Außerdem wird die Installation von GCC mit MSYS2 und MinGW für die Nutzung von `g++` auf Windows beschrieben.
 
 #### Voraussetzungen
 
 1. Ein kompatibler `C++11` oder `C++14` Compiler.
-2. Für einige Funktionen wird die [Boost-Bibliothek](https://www.boost.org) benötigt. 
+2. Für einige Funktionen wird die [Boost-Bibliothek](https://www.boost.org) benötigt.
 
 #### Installation der Boost-Bibliothek
 
 - Debian/Ubuntu: `sudo apt-get install libboost-all-dev`
 - macOS: `brew install boost`
 - Windows: [Boost herunterladen](https://www.boost.org/users/download/) und installieren. Pfad in Visual Studio anpassen: `Properties | C/C++ | General | Additional Include Directories`.
+
+#### Installation von GCC mit MSYS2 und MinGW
+
+1. **MSYS2 herunterladen und installieren:**
+   - Laden Sie das MSYS2-Installationsprogramm von der [MSYS2-Website](https://www.msys2.org/) herunter.
+   - Führen Sie das Installationsprogramm aus und folgen Sie den Anweisungen.
+
+2. **MSYS2 einrichten:**
+   - Starten Sie die MSYS2 Shell (MSYS2 MSYS).
+   - Aktualisieren Sie das Paket-Datenbank und die installierten Pakete:
+     ```sh
+     pacman -Syu
+     ```
+
+3. **Installation von GCC und G++:**
+   - Starten Sie die MSYS2 MinGW 64-bit Shell.
+   - Installieren Sie das GCC-Paket:
+     ```sh
+     pacman -S mingw-w64-x86_64-gcc
+     ```
+
+4. **Einrichten der Pfadumgebungsvariable:**
+   - Fügen Sie den Pfad zu `mingw64/bin` in Ihre Systemumgebungsvariablen hinzu (meistens unter `C:\msys64\mingw64\bin`).
+
+5. **Überprüfen der Installation:**
+   - Öffnen Sie ein neues Kommandozeilenfenster und führen Sie den folgenden Befehl aus, um die Version von `g++` zu überprüfen:
+     ```sh
+     g++ --version
+     ```
 
 #### Schritt-für-Schritt Anleitung
 
@@ -93,6 +121,12 @@ Im `Examples`-Ordner von **ADVobfuscator** finden Sie weitere Beispiele zur Nutz
 - GCC 7.2.0 unter Debian 10
 - Visual Studio 2017 (15.3.3) unter Windows 10
 - Boost 1.65.0
+
+Andere `C++11/14` kompatible Compiler sollten ebenfalls funktionieren.
+
+### Weiterführende Informationen
+
+Für mehr Details und spezielle Anwendungsfälle besuchen Sie die [GitHub-Seite von ADVobfuscator](https://github.com/andrivet/ADVobfuscator) oder lesen Sie die bereitgestellten Whitepapers und Dokumentationen im `Docs`-Ordner des Projekts.
 
 Andere `C++11/14` kompatible Compiler sollten ebenfalls funktionieren.
 
